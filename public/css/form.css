@@ -1,0 +1,73 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 2;
+  margin: 25px;
+}
+
+.present-form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: var(--deep-blue);
+  border: 3px solid var(--dark-honey);
+  border-radius: 50px;
+  margin: 10px 14px;
+}
+
+.present-form__submit {
+  margin: 25px 5px 15px;
+  border-radius: 50px;
+  background-color: tomato;
+  color: cornsilk;
+}
+
+.present-input {
+  padding: 2px 8px;
+  border-radius: 30px;
+}
+
+.present-params {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: cornsilk;
+}
+
+.present-params-item {
+  text-align: center;
+}
+
+.present-delete {
+  text-align: end;
+  /* flex-grow: 0.5; */
+  color: cornsilk;
+  background-color: var(--deep-blue);
+  border: 3px solid var(--dark-honey);
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.present-info {
+  margin: 10px;
+}
+.list__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: cornsilk;
+  background-color: tomato;
+  width: 350px;
+  border: 3px solid var(--honey);
+  border-radius: 30px;
+  padding: 10px;
+}
