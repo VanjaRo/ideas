@@ -2,7 +2,7 @@ import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { ConfigModule } from "@nestjs/config";
 import { APP_INTERCEPTOR } from "@nestjs/core";
-import { LoadTimeInterceptor } from "src/interceptors/loadTime.interceptor";
+import { LoadTimeInterceptor } from "./interceptors/loadTime.interceptor";
 
 @Module({
   imports: [ConfigModule.forRoot()],
