@@ -1,11 +1,11 @@
-<header class="header">
-  <div class="header__logo">ideas</div>
-  <nav class="header__nav">
-    <div class="header__right-block">
+<header class="flex justify-between p-2 text-2xl">
+  <h2 class="btn text-3xl">ideas</h2>
+  <nav class="">
+    <div class="btn text-2xl m-1">
       {{#if loggedIn}}
-        <div>profile</div>
+        profile
       {{else}}
-        <div>login</div>
+        login
       {{/if}}
     </div>
   </nav>

@@ -11,7 +11,9 @@ async function bootstrap() {
   app.setViewEngine("hbs");
 
   var hbs = require("hbs");
-  hbs.registerPartials(join(__dirname, "..", "views", "partials"));
+  var hbsutils = require("hbs-utils")(hbs);
+  hbsutils.registerPartials(join(__dirname, "..", "views", "partials"));
+  hbsutils.registerWatchedPartials(join(__dirname, "..", "views", "partials"));
 
   const port = process.env.PORT;
   await app.listen(port ? port : 3000);
