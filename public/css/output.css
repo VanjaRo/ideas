@@ -497,24 +497,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }
 
-.grid {
-  display: grid;
-}
-
 .h-44 {
   height: 11rem;
-}
-
-.h-\[25vp\] {
-  height: 25vp;
-}
-
-.h-\[25vw\] {
-  height: 25vw;
-}
-
-.h-\[20vw\] {
-  height: 20vw;
 }
 
 .w-full {
@@ -527,20 +511,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: fit-content;
 }
 
-.grid-cols-\[repeat\(auto-fit\2c minmax\(200px\2c 1fr\)\)\] {
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-}
-
-.grid-cols-\[repeat\(var\(--repeat\2c auto-fit\)\2c minmax\(200px\2c 1fr\)\)\] {
-  grid-template-columns: repeat(var(--repeat,auto-fit),minmax(200px,1fr));
-}
-
-.grid-rows-4 {
-  grid-template-rows: repeat(4, minmax(0, 1fr));
-}
-
-.grid-rows-5 {
-  grid-template-rows: repeat(5, minmax(0, 1fr));
+.flex-grow-0 {
+  flex-grow: 0;
 }
 
 .flex-row {
@@ -647,10 +619,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-@media (min-width: calc(200px * 3)) {
-  .grid {
-    --repeat: 3;
-  }
+* {
+  --repeat: 3;
 }
 
 .focus\:col-span-2:focus {
@@ -661,22 +631,40 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-row: span 2 / span 2;
 }
 
-.focus\:h-screen:focus {
-  height: 100vh;
-}
-
-.focus\:h-\[25vw\]:focus {
-  height: 25vw;
-}
-
-.focus\:h-\[50vw\]:focus {
-  height: 50vw;
-}
-
-.focus\:h-\[88\]:focus {
-  height: 88;
-}
-
 .focus\:h-\[22rem\]:focus {
   height: 22rem;
+}
+
+.focus\:flex-grow:focus {
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:grid-cols-\[repeat\(var\(--repeat\2c auto-fit\)\2c minmax\(200px\2c 1fr\)\)\] {
+    grid-template-columns: repeat(var(--repeat,auto-fit),minmax(200px,1fr));
+  }
+
+  .md\:grid-rows-5 {
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+  }
+
+  .md\:focus\:col-span-2:focus {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:focus\:row-span-2:focus {
+    grid-row: span 2 / span 2;
+  }
+
+  .md\:focus\:h-\[22rem\]:focus {
+    height: 22rem;
+  }
+
+  .md\:focus\:flex-grow:focus {
+    flex-grow: 1;
+  }
 }

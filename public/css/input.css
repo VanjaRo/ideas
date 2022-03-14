@@ -6,8 +6,6 @@
   @apply pt-0.5 pb-1 px-4 rounded-2xl shadow-sm shadow-gray-400 font-extrabold;
 }
 
-@media (min-width: calc(200px * 3)) {
-  .grid {
-    --repeat: 3;
-  }
+* {
+  --repeat: 3;
 }
