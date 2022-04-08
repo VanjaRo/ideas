@@ -7,4 +7,9 @@ export class AppController {
   root() {
     return {};
   }
+  @Get("text")
+  @Render("pages/text")
+  texts() {
+    return {};
+  }
 }
