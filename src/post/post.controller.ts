@@ -26,6 +26,8 @@ export class PostController {
   constructor(private readonly postService: PostService) {}
 
   @ApiBearerAuth()
+  @ApiResponse({ status: 200, description: "Post successfuly created" })
+  @ApiResponse({ status: 403, description: "Forbidden" })
   @ApiOperation({ summary: "Create new post" })
   @Post("")
   create(@Body() createPostDto: CreatePostDto) {
@@ -45,6 +47,9 @@ export class PostController {
   }
 
   @ApiBearerAuth()
+  @ApiResponse({ status: 200, description: "Post successfuly found" })
+  @ApiResponse({ status: 404, description: "Post not found" })
+  @ApiResponse({ status: 403, description: "Forbidden" })
   @ApiOperation({ summary: "Modify post with certain id" })
   @Patch(":id")
   update(@Param("id") id: string, @Body() updatePostDto: UpdatePostDto) {
@@ -52,17 +57,26 @@ export class PostController {
   }
 
   @ApiBearerAuth()
+  @ApiResponse({
+    status: 200,
+    description: "Image uploaded successfuly",
+    type: "string",
+  })
+  @ApiResponse({ status: 403, description: "Forbidden" })
   @ApiOperation({ summary: "Upload an image for the post" })
   @ApiBody({
     description: "List of cats",
     type: FileUploadDto,
   })
   @Post("upload-img")
-  uploadImg(@UploadedFile() file) {
+  uploadImg(@UploadedFile() file): string {
     return this.postService.findAll();
   }
 
   @ApiBearerAuth()
+  @ApiResponse({ status: 200, description: "Post successfuly deleted" })
+  @ApiResponse({ status: 404, description: "Post not found" })
+  @ApiResponse({ status: 403, description: "Forbidden" })
   @ApiOperation({ summary: "Remove post with certain id" })
   @Delete(":id")
   remove(@Param("id") id: string) {
