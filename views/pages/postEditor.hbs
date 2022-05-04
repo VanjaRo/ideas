@@ -1,0 +1,27 @@
+<html>
+    {{> head}}
+    {{> headEditor }}
+    <body class="font-gemunu">
+        {{> header user=user pageType="EDITOR"}}
+        <div class="flex flex-col mt-8">
+            <div class="flex justify-center">
+                <article class="prose lg:prose-xl w-5/6">
+                    <div class="flex justify-center">
+                        <input class="px-2 py-1 font-bold text-2xl text-center" type="text" id="text-title" placeholder="Title of the Article">
+                    </div>
+                    <div id="editorjs"></div>
+                </article>
+            </div>
+            <script src="js/postEditor.js"></script>
+            <div id="btn-wrapper"class="flex justify-center">
+                <button id="btn-save" class="btn text-center text-2xl">Upload</button>
+            </div>
+            <div class="text-center  mt-5">
+                <a href="" id="link-addr" class="btn hidden text-xl w-fit col"></a>
+            </div>
+        </div>
+        
+        
+        {{!-- {{> footer}} --}}
+    </body>
+</html>

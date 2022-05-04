@@ -1,0 +1,24 @@
+<html>
+    {{> head}}
+    <body class=" font-gemunu">
+        {{> header user=user pageType="USER"}}
+        {{#if error}}
+            <div class="text-center text-4xl font-extrabold">No user with a given link</div>
+        {{else}}
+        <div class="flex flex-col">
+            <img class="rounded-full h-[150] w-[150] mt-[2] self-center" src="{{userToFind.photoUrl}}" alt="user photo">
+            <div class="text-center text-3xl">{{userToFind.firstName}} {{userToFind.lastName}}</div>
+            {{#if sameUser}}
+                <div class="text-center mt-4">
+                    <a href="/auth/logout" class="btn w-fit text-2xl "> logout btn</a>
+                </div>
+            {{/if}}
+        </div>
+        {{#if userPosts}}
+            <div class="text-center text-2xl font-bold mt-4">User posts: </div>
+            {{>cardsGrid posts=userPosts}}
+        {{/if}}
+        {{/if}}
+        {{> footer}}
+    </body>
+</html>

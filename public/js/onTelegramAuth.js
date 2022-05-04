@@ -8,9 +8,9 @@ function onTelegramAuth(user) {
       user: user,
     }),
   })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
+    .then(
+      // reload the page
+      (res) => window.location.reload()
+    )
     .catch((err) => console.log(err));
 }
