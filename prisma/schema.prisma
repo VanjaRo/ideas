@@ -33,11 +33,12 @@ model Post {
 }
 
 model Theme {
-  id    Int    @id @default(autoincrement())
-  title String
-  votes Int
-  posts Post[]
-  Vote  Vote[]
+  id     Int     @id @default(autoincrement())
+  title  String
+  votes  Int
+  posts  Post[]
+  Vote   Vote[]
+  voting Boolean
 }
 
 model Vote {

@@ -6,6 +6,10 @@ import { LoadTimeInterceptor } from "./interceptors/loadTime.interceptor";
 import { AuthModule } from "./auth/auth.module";
 import { PostModule } from "./post/post.module";
 import { UserModule } from "./user/user.module";
+import { EventsModule } from "./events/events.module";
+import { VotesService } from "./votes/votes.service";
+import { VotesModule } from "./votes/votes.module";
+import { ThemesModule } from "./themes/themes.module";
 
 @Module({
   imports: [
@@ -15,6 +19,9 @@ import { UserModule } from "./user/user.module";
     AuthModule,
     UserModule,
     PostModule,
+    EventsModule,
+    VotesModule,
+    ThemesModule,
   ],
   controllers: [AppController],
   providers: [

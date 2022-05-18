@@ -19,7 +19,7 @@ export class AppController {
     return { user: req.cookies["user"], posts: recentPosts };
   }
 
-  @Get("text")
+  @Get("editor")
   @Render("pages/postEditor")
   texts(@Req() req: Request) {
     return { user: req.cookies["user"] };

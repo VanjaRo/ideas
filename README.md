@@ -39,12 +39,14 @@ Post interaction:
 Voting interaction:
 
 - back
-  - Assign Vote for the socket call
-  - Check if the Vote was already assigned
-  - Retreat vote
-  - Check if the Vote could be retreated
+  - Cors politics for dev and prod domens (event controller)
+  - Assign Vote for the socket call (addVote message)
+  - Check if the Vote was already assigned (event service)
+  - Retreat vote (retreatVote)
+  - Check if the Vote could be retreated (event service)
 - front
-  - Update the number on the theme on success call
+  - Script to send mesages on the event
+  - Script to react on messages received
 
 Auth interaction:
 Telegram auth -> verifying cache -> create a jwt -> send jwt as a cookie

@@ -1,0 +1,13 @@
+<html>
+    {{> head}}
+    {{> headSocket}}
+    <body class=" font-gemunu">
+        {{> header user=user pageType="VOTING"}} 
+        <div class="flex flex-row justify-around">
+            {{#each themes}}
+                {{> themeVoting this}}
+            {{/each}}
+        </div>
+        {{> footer}}
+    </body>
+</html>
