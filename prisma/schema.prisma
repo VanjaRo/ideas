@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id             Int    @id @default(autoincrement())
+  posts          Post[]
+  telegraphToken String
+  telegramId     String
+}
+
+model Post {
+  id            Int     @id @default(autoincrement())
+  telegraphURL  String
+  author        User    @relation(fields: [authorId], references: [id])
+  authorId      Int
+  themes        Theme[]
+  backgroundURL String
+}
+
+model Theme {
+  id    Int    @id @default(autoincrement())
+  title String
+  votes Int
+  Post  Post[]
+}

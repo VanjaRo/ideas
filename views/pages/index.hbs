@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap" rel="stylesheet">
+    <link href="css/output.css" rel="stylesheet">
+    <script type="text/javascript" src="js/loadTime.js"></script>
+  </head>
+  <body class=" font-gemunu">
+    {{> header loggedIn=false}}
+    <div class="text-center text-2xl mb-2">themes of the week:</div>
+    <div class="flex flex-row justify-evenly my-5 text-2xl font-semibold">
+      <div>First Title</div>
+      <div>Second Title</div>
+      <div>Third Title</div>
+    </div>
+    <div class="text-center text-2xl mb-2">the most recent posts:</div>
+    <div class="flex flex-col flex-wrap mt-3 md:grid md:grid-cols-[repeat(var(--repeat,auto-fit),minmax(200px,1fr))] md:grid-rows-5 md:m-3 ">
+       {{> card itemId=1}}
+       {{> card itemId=2}}
+       {{> card itemId=3}}
+       {{> card itemId=4}}
+       {{> card itemId=5}}
+       {{> card itemId=6}}
+       {{> card itemId=7}}
+       {{> card itemId=8}}
+       {{> card itemId=9}}
+    </div>
+    <div class="flex justify-center text-2xl">
+      ideas is a platfor for your themed Telegraph posts.
+    </div>
+    {{> footer}}
+  </body>
+  
+</html>
