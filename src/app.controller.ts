@@ -1,10 +1,12 @@
 import { Get, Controller, Render, Req } from "@nestjs/common";
+import { ApiOperation } from "@nestjs/swagger";
 import { Request } from "express";
 import { PostService } from "./post/post.service";
 
 @Controller()
 export class AppController {
   constructor(private readonly postService: PostService) {}
+  @ApiOperation({ summary: "Main page." })
   @Get()
   @Render("pages/index")
   async root(@Req() req: Request) {
@@ -19,6 +21,7 @@ export class AppController {
     return { user: req.cookies["user"], posts: recentPosts };
   }
 
+  @ApiOperation({ summary: "Post editor." })
   @Get("editor")
   @Render("pages/postEditor")
   texts(@Req() req: Request) {

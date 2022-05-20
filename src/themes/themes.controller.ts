@@ -17,11 +17,9 @@ import { ApiBearerAuth, ApiOperation, ApiResponse } from "@nestjs/swagger";
 
 @Controller("themes")
 export class ThemesController {
-  constructor(
-    private readonly themesService: ThemesService,
-    private readonly votesService: VotesService
-  ) {}
+  constructor(private readonly themesService: ThemesService) {}
 
+  @ApiOperation({ summary: "Create new theme." })
   @Post()
   async create(@Req() req: Request, @Body() createThemeDto: CreateThemeDto) {
     return this.themesService.createTheme(createThemeDto);
