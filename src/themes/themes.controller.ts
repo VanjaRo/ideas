@@ -13,6 +13,7 @@ import { ThemesService } from "./themes.service";
 import { CreateThemeDto } from "./dto/create-theme.dto";
 import { VotesService } from "src/votes/votes.service";
 import { JwtAuthGuard } from "src/auth/jwt-auth.guard";
+import { ApiBearerAuth, ApiOperation, ApiResponse } from "@nestjs/swagger";
 
 @Controller("themes")
 export class ThemesController {
@@ -26,44 +27,27 @@ export class ThemesController {
     return this.themesService.createTheme(createThemeDto);
   }
 
+  @ApiBearerAuth()
+  @ApiResponse({ status: 200, description: "Theme successfuly upvoted" })
+  @ApiResponse({ status: 401, description: "Unauthorized" })
+  @ApiOperation({ summary: "Upvote theme." })
   @Post("upvote/:id")
   @UseGuards(JwtAuthGuard)
   upvoteTheme(@Req() req: Request, @Param("id") id: number) {
-    // create vote dto
-    let voteDto = {
-      themeId: id,
-      userId: req.user["id"],
-    };
-    let result = this.votesService.createVote(voteDto);
-    if (result) {
-      return {
-        status: "success",
-      };
-    }
-    return {
-      status: "error",
-    };
+    return this.themesService.upvote(id, req.user["id"]);
   }
 
+  @ApiBearerAuth()
+  @ApiResponse({ status: 200, description: "Theme successfuly downvoted" })
+  @ApiResponse({ status: 401, description: "Unauthorized" })
+  @ApiOperation({ summary: "Downvote theme." })
   @Post("downvote/:id")
   @UseGuards(JwtAuthGuard)
   downvoteTheme(@Req() req: Request, @Param("id") id: number) {
-    // create vote dto
-    let voteDto = {
-      themeId: id,
-      userId: req.user["id"],
-    };
-    let result = this.votesService.removeVoteByThemeIdAndUserId(voteDto);
-    if (result) {
-      return {
-        status: "success",
-      };
-    }
-    return {
-      status: "error",
-    };
+    return this.themesService.downvote(id, req.user["id"]);
   }
 
+  @ApiOperation({ summary: "Voting page." })
   @Get("voting")
   @Render("pages/voting")
   async findActive(@Req() req: Request) {
