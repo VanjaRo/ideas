@@ -1,12 +1,17 @@
 <header class="flex justify-between p-2 text-2xl m-3">
-  <div class="basis-full">
-    <div class="btn text-3xl w-fit">ideas</div>
+  <div class="basis-full flex">
+    <a href="/" class="btn text-3xl w-fit self-center">ideas</a>
+    <a href="/themes/voting" class="btn text-3xl w-fit self-center ml-2">vote</a>
+    <a href="/editor" class="btn text-3xl w-fit self-center ml-2">create</a>
   </div>
-  <div class="text-3xl font-bold basis-full text-center">{{ pageType }} PAGE</div>
+  <div class="text-3xl font-extrabold basis-full text-center p-1 self-center">{{ pageType }} PAGE</div>
   <nav class="basis-full flex flex-row-reverse">
     <div class="">
-    {{#if loggedIn}}
-      <div class="btn text-2xl m-1">profile</div>
+    {{#if user}}
+      <a href="/user/{{user.username}}" class="btn m-1 flex flex-row">
+        <div class="text-2xl self-center mr-3">{{ user.first_name }} {{ user.last_name }}</div>
+        <img class=" rounded-full h-10 w-10 mt-[2] self-center" src="{{user.photo_url}}" alt="{{user.first_name}}">
+      </a>
     {{else}}
       <script
         async
@@ -15,7 +20,7 @@
         data-size="large"
         data-onauth="onTelegramAuth(user)"
       ></script>
-      <script type="text/javascript" src="js/onTelegramAuth.js"></script>
+      <script type="text/javascript" src="/js/onTelegramAuth.js"></script>
     </div>
     {{/if}}
   </nav>

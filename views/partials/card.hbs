@@ -1,7 +1,15 @@
 <button
-  id={{itemId}}
+  id={{this.id}}
   class="bg-[url(https://telegra.ph/file/ac0ba1d044f026c1831c8.png)] bg-cover p-4 flex flex-col h-44 md:focus:col-span-2 md:focus:row-span-2 focus:h-[22rem]"
 >
-  <div class="text-lg text-white font-bold">Title of the card {{title}}</div>
-  <div class="text-gray-300">Short description text</div>
+  <a
+    href="/post/{{this.id}}"
+    class="text-lg text-white font-bold bg-white/[0.15] rounded-lg px-2"
+  >
+    {{this.title}}</a>
+  <div class="pl-1 text-gray-300 text-ellipsis">
+    {{#each this.text}}
+      {{{this}}}
+    {{/each}}
+  </div>
 </button>

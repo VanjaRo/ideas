@@ -1,0 +1,14 @@
+<div class="flex-col m-5 w-fit text-lg font-bold bg-black rounded-lg px-2 pb-2">
+  <div class="text-center text-white flex-grow">{{this.title}}</div>
+  <div class="flex justify-evenly text-lg font-bold bg-white rounded-lg">
+    <div
+      onclick="onMinusClick({{this.id}})"
+      class="p-2 border-r-2 border-solid font-extrabold flex-grow text-center hover:text-white hover:bg-black"
+    >-</div>
+    <div id="vote-counter-{{this.id}}" class="m-2">{{this.votes}}</div>
+    <div
+      onclick="onPlusClick({{this.id}})"
+      class="p-2 border-l-2 border-solid font-extrabold flex-grow text-center hover:text-white hover:bg-black"
+    >+</div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <html>
   {{> head}}
   <body class=" font-gemunu">
-    {{> header loggedIn=false pageType="MAIN"}}
+    {{> header user=user pageType="MAIN"}}
     <div class="text-center text-4xl m-3">themes of the week:</div>
     <div class="flex flex-row justify-evenly my-5 text-2xl font-semibold">
       <div>First Title</div>
@@ -10,18 +10,8 @@
     </div>
     <div class="text-center text-2xl mb-2">the most recent posts:</div>
     {{!-- cards menu --}}
-    <div class="flex flex-col flex-wrap mt-3 md:grid md:grid-cols-[repeat(var(--repeat,auto-fit),minmax(200px,1fr))] md:grid-rows-5 md:m-3 ">
-       {{> card itemId=1}}
-       {{> card itemId=2}}
-       {{> card itemId=3}}
-       {{> card itemId=4}}
-       {{> card itemId=5}}
-       {{> card itemId=6}}
-       {{> card itemId=7}}
-       {{> card itemId=8}}
-       {{> card itemId=9}}
-    </div>
-    <div class="flex justify-center text-2xl">
+    {{>cardsGrid posts=posts}}
+    <div class="flex justify-center text-2xl h-24">
       ideas is a platfor for your themed Telegraph posts.
     </div>
     {{> footer}}

@@ -1,0 +1,19 @@
+<html>
+    {{> head}}
+    <body class=" font-gemunu">
+        {{> header user=user pageType="POST"}}
+        {{#if error}}
+        <div class="text-center text-4xl font-extrabold">No post with a given link</div>
+        {{else}}
+        <div class="flex justify-center ">
+            <article class="lg:prose-2xl w-2/3">
+                <h2 class="text-center">{{title}}</h1>
+                {{#each text}}
+                    {{{this}}}
+                {{/each}}
+            </article>
+        </div>
+        {{/if}}
+        {{> footer}}
+    </body>
+</html>

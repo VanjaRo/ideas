@@ -12,30 +12,33 @@ datasource db {
 }
 
 model User {
-  id              Int    @id @default(autoincrement())
-  posts           Post[]
-  profilePhotoURL String
-  firstName       String
-  lastName        String
-  Vote            Vote[]
+  id        Int    @id
+  posts     Post[]
+  photoUrl  String
+  username  String @unique
+  firstName String
+  lastName  String
+  Vote      Vote[]
 }
 
 model Post {
-  id                 Int      @id @default(autoincrement())
-  backgroundPhotoURL String
+  id                 String   @id
+  backgroundPhotoURL String?
   author             User     @relation(fields: [authorId], references: [id])
   authorId           Int
   themes             Theme[]
   uploadTime         DateTime
   text               Json
+  title              String
 }
 
 model Theme {
-  id    Int    @id @default(autoincrement())
-  title String
-  votes Int
-  posts Post[]
-  Vote  Vote[]
+  id     Int     @id @default(autoincrement())
+  title  String
+  votes  Int
+  posts  Post[]
+  Vote   Vote[]
+  voting Boolean
 }
 
 model Vote {
